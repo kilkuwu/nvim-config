@@ -16,3 +16,10 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
+-- configuration for neovide
+if vim.g.neovide then 
+  vim.o.guifont = "JetBrainsMono Nerd Font"
+  vim.g.neovide_scroll_animation_length = 0.1
+  vim.g.neovide_cursor_animation_length = 0.05
+  vim.g.neovide_cursor_trail_size = 0
+end
