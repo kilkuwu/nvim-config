@@ -1,9 +1,11 @@
+-- Automatically go to insert mode in terminal
 vim.api.nvim_create_autocmd("TermOpen", {
   callback = function() 
     vim.cmd "startinsert" 
   end
 })
 
+-- Compiling in cpp file
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "cpp",
   callback = function() 
@@ -29,4 +31,13 @@ vim.api.nvim_create_autocmd("FileType", {
       vim.cmd "te if (build_cpp %:r) { %:r }"
     end)
   end
+})
+
+-- Highlight on yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
