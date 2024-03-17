@@ -13,6 +13,11 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.opt.mouse = 'a'
 
+vim.opt.wrap = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+
 vim.cmd("set cino+=L0")
 vim.cmd("set indentkeys-=:")
 

@@ -17,7 +17,6 @@ return {
       },
     })
 
-    require("mini.pairs").setup()
     require("mini.surround").setup()
 
     local indentscope = require("mini.indentscope")

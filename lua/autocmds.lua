@@ -1,8 +1,11 @@
 -- Automatically go to insert mode in terminal
-vim.api.nvim_create_autocmd("TermOpen", {
-  callback = function() 
-    vim.cmd "startinsert" 
-  end
+vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
+    pattern = { "*" },
+    callback = function()
+        if vim.opt.buftype:get() == "terminal" then
+            vim.cmd(":startinsert")
+        end
+    end
 })
 
 -- Compiling in cpp file
@@ -14,21 +17,22 @@ vim.api.nvim_create_autocmd("FileType", {
       vim.cmd "vert res 50"
     end
 
-    vim.keymap.set('n', "<F9>", function()
+
+    vim.keymap.set({ 'i', 'n' }, "<F9>", function()
       vim.cmd "w"
       VertSplit()
-      vim.cmd "te if (build_cpp %:r) {}"
+      vim.cmd "te if ((build_cpp %:r)) {}"
     end)
 
-    vim.keymap.set('n', '<F10>', function() 
+    vim.keymap.set({ 'i', 'n' }, '<F10>', function() 
       VertSplit()
       vim.cmd "te %:r"
     end)
 
-    vim.keymap.set('n', '<C-F9>', function()
+    vim.keymap.set({ 'i', 'n' }, '<C-F9>', function()
       vim.cmd("w")
       VertSplit()
-      vim.cmd "te if (build_cpp %:r) { %:r }"
+      vim.cmd "te if ((build_cpp %:r)) { %:r }"
     end)
   end
 })
