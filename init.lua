@@ -22,15 +22,11 @@ require("keymaps")
 
 vim.cmd.colorscheme "vscode"
 
-vim.api.nvim_set_hl(0, "Normal", { bg = nil });
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = nil });
-
-vim.cmd "hi clear SignColumn"
-vim.cmd "hi clear LineNr"
-vim.cmd "hi clear ModeMsg"
+-- vim.api.nvim_set_hl(0, "Normal", { bg = nil });
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = nil });
+--
+-- vim.cmd "hi clear SignColumn"
+-- vim.cmd "hi clear LineNr"
+-- vim.cmd "hi clear ModeMsg"
 -- vim.cmd "hi clear MatchParen"
 
--- configuration for neovide
-if vim.g.neovide then
-  require("neovide_init");
-end

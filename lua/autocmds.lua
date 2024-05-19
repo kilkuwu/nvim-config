@@ -15,18 +15,18 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set({ 'i', 'n' }, "<F9>", function()
       vim.cmd "w"
       vim.cmd "belowright vs"
-      vim.cmd "te if ((build_cpp %:p:r.exe)) {}"
+      vim.cmd "te if ((build_cpp %:p:r)) {}"
     end)
 
     vim.keymap.set({ 'i', 'n' }, '<F10>', function()
       vim.cmd "belowright vs"
-      vim.cmd "te %:r.exe"
+      vim.cmd "te %:p:r.exe"
     end)
 
     vim.keymap.set({ 'i', 'n' }, '<C-F9>', function()
       vim.cmd("w")
       vim.cmd "belowright vs"
-      vim.cmd "te if ((build_cpp %:r)) { %:p:r }"
+      vim.cmd "te if ((build_cpp %:p:r)) { %:p:r }"
     end)
   end
 })
