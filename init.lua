@@ -1,7 +1,4 @@
-require("options")
-require("autocmds")
-require("keymaps")
-require("custom-commands")
+vim.g.mapleader = " "
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -14,17 +11,26 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
--- configuration for neovide
-if vim.g.neovide then 
-  vim.o.guifont = "JetBrainsMono Nerd Font"
-  vim.g.neovide_scroll_animation_length = 0.1
-  vim.g.neovide_cursor_animation_length = 0.05
-  vim.g.neovide_cursor_trail_size = 0
+require("options")
+require("autocmds")
+require("keymaps")
 
-  -- make bracket works
-  vim.keymap.set('i', '<S-CR>', '<CR>', { remap = true })
+vim.cmd.colorscheme "vscode"
+
+vim.api.nvim_set_hl(0, "Normal", { bg = nil });
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = nil });
+
+vim.cmd "hi clear SignColumn"
+vim.cmd "hi clear LineNr"
+vim.cmd "hi clear ModeMsg"
+-- vim.cmd "hi clear MatchParen"
+
+-- configuration for neovide
+if vim.g.neovide then
+  require("neovide_init");
 end

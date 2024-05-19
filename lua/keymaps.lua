@@ -1,16 +1,9 @@
+local utils = require("utils")
+
 vim.keymap.set('i', 'jj', '<Esc>')
--- Make Ctrl + V paste
-vim.keymap.set('i', '<C-v>', '<C-r>"')
 
--- Make Ctrl + BS work
 vim.keymap.set('i', '<C-h>', '<C-w>')
-vim.keymap.set('i', '<C-BS>', '<C-w>')
-
--- Allowing Ctrl + C as copy in visual mode
-vim.keymap.set('v', '<C-c>', 'y')
-
--- Allowing Ctrl + V as paste
-vim.keymap.set('n', '<C-v>', 'p')
+vim.keymap.set('c', '<C-h>', '<C-w>')
 
 -- Moving around
 vim.keymap.set('n', '<C-j>', "<C-w>j")
@@ -20,10 +13,19 @@ vim.keymap.set('n', '<C-l>', "<C-w>l")
 
 -- Select all
 vim.keymap.set('n', '<C-a>', 'ggVG')
-vim.keymap.set('i', '<C-a>', '<Esc>ggVG')
 
 vim.keymap.set('t', 'jj', '<C-\\><C-n>', { noremap = true })
 
-vim.keymap.set('n', '<leader>t', ':V<CR>')
+vim.keymap.set('n', '<leader>t', utils.VerticalTerminal)
+
+vim.keymap.set('n', '<leader>p', '"+p')
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
+
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+
+vim.api.nvim_create_user_command("EditSnippet", require("luasnip.loaders").edit_snippet_files, {})
+
+-- vim.keymap.set('n', '<C-u>', '<C-u>zz')
+-- vim.keymap.set('n', '<C-d>', '<C-d>zz')
 
 

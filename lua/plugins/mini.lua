@@ -2,7 +2,7 @@ return {
   'echasnovski/mini.nvim',
   version = '*',
   config = function()
-    require("mini.pairs").setup()
+
     local ai = require("mini.ai")
     ai.setup({
       n_lines = 500,

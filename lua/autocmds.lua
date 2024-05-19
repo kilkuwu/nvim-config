@@ -11,28 +11,22 @@ vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
 -- Compiling in cpp file
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "cpp",
-  callback = function() 
-    local VertSplit = function() 
-      vim.cmd "vs"
-      vim.cmd "vert res 50"
-    end
-
-
+  callback = function()
     vim.keymap.set({ 'i', 'n' }, "<F9>", function()
       vim.cmd "w"
-      VertSplit()
-      vim.cmd "te if ((build_cpp %:r)) {}"
+      vim.cmd "belowright vs"
+      vim.cmd "te if ((build_cpp %:p:r.exe)) {}"
     end)
 
-    vim.keymap.set({ 'i', 'n' }, '<F10>', function() 
-      VertSplit()
-      vim.cmd "te %:r"
+    vim.keymap.set({ 'i', 'n' }, '<F10>', function()
+      vim.cmd "belowright vs"
+      vim.cmd "te %:r.exe"
     end)
 
     vim.keymap.set({ 'i', 'n' }, '<C-F9>', function()
       vim.cmd("w")
-      VertSplit()
-      vim.cmd "te if ((build_cpp %:r)) { %:r }"
+      vim.cmd "belowright vs"
+      vim.cmd "te if ((build_cpp %:r)) { %:p:r }"
     end)
   end
 })

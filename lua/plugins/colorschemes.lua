@@ -1,5 +1,5 @@
 return {
-  { 
+  {
     "ellisonleao/gruvbox.nvim",
     priority = 1000,
     init = function()
@@ -27,7 +27,6 @@ return {
         dim_inactive = false,
         transparent_mode = false,
       })
-      -- vim.cmd.colorscheme "gruvbox"
     end
   },
   {
@@ -35,9 +34,10 @@ return {
     lazy = false,
     priority = 1000,
     opts = {},
-    config = function()
-      vim.cmd.colorscheme "tokyonight"
-    end
+  },
+  {
+    'Mofiqul/vscode.nvim'
   }
-
 }
+
+

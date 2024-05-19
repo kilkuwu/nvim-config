@@ -1,31 +1,46 @@
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+local config  = {
+  -- indent
+  tabstop = 2,
+  shiftwidth = 2,
+  expandtab = true,
 
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.breakindent = true
+  autoindent = true,
+  smartindent = true,
+  breakindent = true,
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+  number = true,
+  relativenumber = true,
 
-vim.opt.clipboard = "unnamedplus"
+  mouse = 'a',
 
-vim.opt.mouse = 'a'
+  wrap = false,
 
-vim.opt.wrap = false
+  swapfile = false,
+  backup = false,
+  undodir = os.getenv("LOCALAPPDATA") .. "\\nvim\\undodir",
+  undofile = true,
 
-vim.opt.swapfile = false
-vim.opt.backup = false
+  scrolloff = 8,
 
-vim.cmd("set cino+=L0")
-vim.cmd("set indentkeys-=:")
+  pumheight = 8,
 
-vim.opt.shell = vim.fn.executable "pwsh" and "pwsh" or "powershell"
-vim.opt.shellcmdflag = "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
--- vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
--- vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
-vim.opt.shellquote = ""
-vim.opt.shellxquote = ""
+  signcolumn = "yes",
 
-vim.g.mapleader = " "
+  -- configure powershell
+  shell = vim.fn.executable "pwsh" and "pwsh" or "powershell",
+  shellcmdflag = "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+  -- shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait",
+  -- shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode",
+  shellquote = "",
+  shellxquote = "",
+}
+
+for option, value in pairs(config)
+  do
+  vim.opt[option] = value
+end
+
+vim.opt.cino:append("L0")
+vim.opt.indentkeys:remove(":")
+
+
