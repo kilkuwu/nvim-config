@@ -28,10 +28,9 @@ return {
       config = true
       -- use opts = {} for passing setup options
       -- this is equalent to setup({}) function
-    }, 
+    },
     'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-path',
-    
+--   'hrsh7th/cmp-path',
   },
   config = function()
     -- See `:help cmp`
@@ -86,8 +85,8 @@ return {
 
       sources = {
         { name = 'luasnip' },
-        { name = 'nvim_lsp' },
-        { name = 'path' }
+        { name = 'nvim_lsp' }
+        -- { name = 'path' }
       },
     }
 

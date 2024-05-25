@@ -1,7 +1,5 @@
 local utils = require("utils")
 
-vim.keymap.set('i', 'jj', '<Esc>')
-
 vim.keymap.set('i', '<C-h>', '<C-w>')
 vim.keymap.set('c', '<C-h>', '<C-w>')
 
@@ -14,7 +12,7 @@ vim.keymap.set('n', '<C-l>', "<C-w>l")
 -- Select all
 vim.keymap.set('n', '<C-a>', 'ggVG')
 
-vim.keymap.set('t', 'jj', '<C-\\><C-n>', { noremap = true })
+vim.keymap.set('t', '<C-c>', '<C-\\><C-n>', { noremap = true })
 
 vim.keymap.set('n', '<leader>t', utils.VerticalTerminal)
 

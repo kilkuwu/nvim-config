@@ -3,6 +3,7 @@ local config  = {
   tabstop = 2,
   shiftwidth = 2,
   expandtab = true,
+  softtabstop = 2,
 
   autoindent = true,
   smartindent = true,
